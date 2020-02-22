@@ -1,0 +1,3 @@
+#project(leetcode)
+
+add_executable(LongestSubstringWithoutRepeatingCharacters LongestSubstringWithoutRepeatingCharacters.cpp)
