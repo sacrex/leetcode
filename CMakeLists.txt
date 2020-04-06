@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-add_subdirectory(LongestSubstringWithoutRepeatingCharacters)
-add_subdirectory(7ReverseInteger)
-add_subdirectory(9PalindromeNumber)
+add_subdirectory("Longest Substring Without Repeating Characters")
+add_subdirectory("Reverse Integer")
+add_subdirectory("Palindrome Number")
+add_subdirectory("Dynamic Programming")
