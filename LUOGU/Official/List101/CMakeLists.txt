@@ -1,0 +1,12 @@
+project(leetcode)
+
+add_executable(P5710 P5710.cpp)
+add_executable(P5711 P5711.cpp)
+add_executable(P5712 P5712.cpp)
+add_executable(P5713 P5713.cpp)
+add_executable(P5714 P5714.cpp)
+add_executable(P5715 P5715.cpp)
+add_executable(P5716 P5716.cpp)
+add_executable(P1085 P1085.cpp)
+add_executable(P1909 P1909.cpp)
+add_executable(P1055 P1055.cpp)
