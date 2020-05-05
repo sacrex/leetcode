@@ -10,3 +10,5 @@ add_executable(UniquePaths UniquePaths.cpp)
 add_executable(UniquePaths_V2 UniquePaths_V2.cpp)
 # [63]
 add_executable(UniquePathsII UniquePathsII.cpp)
+
+add_executable(LuoguP1980 LuoguP1980.cpp)
