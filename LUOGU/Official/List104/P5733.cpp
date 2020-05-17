@@ -13,8 +13,14 @@ const int inf = 0x80000000;
 
 int main(int argc, char **argv)
 {
-#ifndef ONLINE_JUDGE
-#endif
+    string str;
+    cin >> str;
+    auto f = [](string &str) {
+        for (auto &i : str) i = toupper(i);
+    };
+    f(str);
+
+    cout << str << endl;
 
     return 0;
 }

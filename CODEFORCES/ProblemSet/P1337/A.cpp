@@ -13,8 +13,12 @@ const int inf = 0x80000000;
 
 int main(int argc, char **argv)
 {
-#ifndef ONLINE_JUDGE
-#endif
-
+    int t, a , b, c, d;
+    cin >> t;
+    while(t--) {
+        cin >> a >> b >> c >> d;
+        printf("%d %d %d\n", b, c, c);
+    }
+    printf("\n");
     return 0;
 }

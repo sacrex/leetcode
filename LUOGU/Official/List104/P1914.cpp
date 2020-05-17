@@ -13,8 +13,15 @@ const int inf = 0x80000000;
 
 int main(int argc, char **argv)
 {
-#ifndef ONLINE_JUDGE
-#endif
+    int n;
+    string ori;
+    cin >> n >> ori;
+
+    n %= 26;
+    for (int i = 0; i < ori.size(); ++i) {
+        ori[i] = (char)(((int)ori[i] + n - (int)'a') % 26 + 'a');
+    }
+    cout << ori << endl;
 
     return 0;
 }
