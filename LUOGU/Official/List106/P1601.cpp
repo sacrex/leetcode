@@ -1,7 +1,17 @@
-#include "common.h"
+//
+// Created by sacred on 20-4-19.
+//
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef unsigned long long ull;
+
+const int inf = 0x80000000;
+#define FREOPEN(x) freopen(x, "r", stdin)
 
 class Number {
-private:
     Number multi(int k, int j) {
         Number ans;
         int carry = 0;
@@ -16,13 +26,12 @@ private:
         }
         return ans;
     }
-private:
-    int A[4010];
+    int A[1000];
     int len;
+
 public:
     //A数组的A[0]表示个位
-    explicit Number(const char *L, int l)
-    {
+    Number(const char *L, int l){
         memset(A, 0, sizeof(A));
         len = l;
         for (int i = 0; i < l; ++i) {
@@ -31,9 +40,9 @@ public:
         len = l;
     }
 
-    explicit Number(int i = 0)
-    {
+    Number(int i = 0) {
         memset(A, 0, sizeof(A));
+
         int k = 0;
         while(i) {
             A[k++] = i % 10;
@@ -46,7 +55,7 @@ public:
         return *this + b;
     }
 
-    Number& operator+(const Number &b)
+    Number& operator+(Number &b)
     {
         int l = max(len, b.len);
         for (int i = 0; i < l; ++i){
@@ -62,15 +71,8 @@ public:
         return *this * b;
     }
 
-    Number& operator*(const Number &b)
+    Number& operator*(Number &b)
     {
-        //如果b为0,则 *this = 0
-        if (isZero(b)) {
-            setNum(0, 0);
-            setSize(1);
-            return *this;
-        }
-
         Number c, d;
         for (int i = 0; i < b.len; ++i) {
             c = multi(b[i], i); //i作为偏移值
@@ -80,48 +82,35 @@ public:
         return *this;
     }
 
-    void setNum(int idx, int digit) {
-        if (idx >= size()) {
-            setSize(idx+1);
+    void print() {
+        for (int i = len - 1; i >= 0; --i) {
+            printf("%d", A[i]);
         }
-        this->A[idx] = digit;
-    }
-
-    int getNum(int idx) const {
-        if (idx >= size()) {
-            return 0;
-        }
-        return A[idx];
-    }
-
-    int setSize(int len) {
-        this->len = len;
     }
 
     int size() const {
         return len;
     }
 
-    int& operator[](int i) {
-        return A[i];
-    }
-
-    const int& operator[](int i) const
+    int& operator[](int i)
     {
         return A[i];
     }
-
-    bool isZero(const Number& n) const {
-        for (int i = 0; i < n.size(); ++i) {
-            if (getNum(i) != 0)
-                return false;
-        }
-        return true;
-    }
 };
-ostream& operator<<(ostream& o, Number n) {
-    for (int i = n.size() - 1; i >= 0; --i) {
-        cout << n.getNum(i);
-    }
-}
 
+
+
+int main(int argc, char **argv)
+{
+#ifndef ONLINE_JUDGE
+#endif
+    string a, b;
+    cin >> a >> b;
+    Number A(a.c_str(), a.length());
+    Number B(b.c_str(), b.length());
+    A += B;
+    A.print();
+    cout << endl;
+
+    return 0;
+}

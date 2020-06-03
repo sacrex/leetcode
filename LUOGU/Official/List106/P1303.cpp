@@ -1,4 +1,15 @@
-#include "common.h"
+//
+// Created by sacred on 20-4-19.
+//
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef unsigned long long ull;
+
+const int inf = 0x80000000;
+#define FREOPEN(x) freopen(x, "r", stdin)
 
 class Number {
 private:
@@ -125,3 +136,14 @@ ostream& operator<<(ostream& o, Number n) {
     }
 }
 
+
+int main(int argc, char **argv)
+{
+#ifndef ONLINE_JUDGE
+#endif
+    string a, b;
+    cin >> a >> b;
+    cout << Number(a.c_str(), a.length()) * Number(b.c_str(), b.length()) << endl;
+
+    return 0;
+}
