@@ -10,3 +10,14 @@ add_executable(P1328 P1328.cpp)
 
 add_executable(P1518 P1518.cpp)
 add_executable(P1518_2 P1518_2.cpp)
+
+add_executable(P1067 P1067.cpp)
+
+add_executable(P1098 P1098.cpp)
+add_executable(P1098_2 P1098_2.cpp)
+
+add_executable(P1065 P1065.cpp)
+add_executable(P1786 P1786.cpp)
+add_executable(P1591 P1591.cpp)
+add_executable(P1249 P1249.cpp)
+add_executable(P1045 P1045.cpp)

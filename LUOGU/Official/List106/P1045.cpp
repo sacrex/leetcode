@@ -1,3 +1,17 @@
+//
+// Created by sacred on 20-4-19.
+//
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef unsigned long long ull;
+
+const int inf = 0x80000000;
+#define FREOPEN(x) freopen(x, "r", stdin)
+
+
 class Number {
 private:
     Number multi(int k, int j) {
@@ -15,7 +29,7 @@ private:
         return ans;
     }
 private:
-    int A[4010];
+    int A[1500];
     int len;
 public:
     //A数组的A[0]表示个位
@@ -121,4 +135,52 @@ ostream& operator<<(ostream& o, Number n) {
     for (int i = n.size() - 1; i >= 0; --i) {
         cout << n.getNum(i);
     }
+}
+
+int main(int argc, char **argv)
+{
+#ifndef ONLINE_JUDGE
+#endif
+    int P;
+    cin >> P;
+    cout << ceil(P * log10(2)) << endl;
+
+
+    map<int, Number> mp; //存入 2^k 对应的number
+    vector<int> vec;
+
+    Number n(2);
+    int cnt = 1; //累计乘２的次数
+    while(cnt <= P) {
+        if (cnt * 2 > P) {
+            int left = P - cnt;
+            for(int i = vec.size() - 1; i >= 0; --i) {
+                if (left >= vec[i]) {
+                    left -= vec[i];
+                    n = n * mp[vec[i]];
+                    if (n.size() > 520) n.setSize(520); //保留最低的520位，就可以精确的保留最低的500位
+                }
+            }
+            if (left) {
+                for (int i = 1; i <= left; ++i) {
+                    n = n * Number(2);
+                    if (n.size() > 520) n.setSize(520);
+                }
+            }
+            break;
+        }
+        n = n * n; //快速幂
+        if (n.size() > 520) n.setSize(520);
+        cnt *= 2;
+        mp[cnt] = n;
+        vec.push_back(cnt);
+    }
+
+    n[0] -= 1; //减１
+    for (int i = 499; i >=0 ; --i) {
+        if (i !=499 && (i+1) % 50 == 0) cout << "\n";
+        cout << n[i];
+    }
+
+    return 0;
 }

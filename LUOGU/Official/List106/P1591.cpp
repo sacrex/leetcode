@@ -1,3 +1,16 @@
+//
+// Created by sacred on 20-4-19.
+//
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef unsigned long long ull;
+
+const int inf = 0x80000000;
+#define FREOPEN(x) freopen(x, "r", stdin)
+
 class Number {
 private:
     Number multi(int k, int j) {
@@ -121,4 +134,29 @@ ostream& operator<<(ostream& o, Number n) {
     for (int i = n.size() - 1; i >= 0; --i) {
         cout << n.getNum(i);
     }
+}
+
+int main(int argc, char **argv)
+{
+#ifndef ONLINE_JUDGE
+    FREOPEN("/home/sacred/leetcode/LUOGU/Official/List106/P1591_in");
+#endif
+    int T;
+    cin >> T;
+    for (int i = 0; i < T; ++i) {
+        int n, a;
+        cin >> n >> a;
+        Number num(1);
+        for(int j = 2; j <= n; ++j) {
+            Number t(j);
+            num = num * t;
+        }
+        int ans = 0;
+        for (int j = 0; j < num.size(); ++j) {
+            if (num[j] == a) ans++;
+        }
+        cout << ans << endl;
+    }
+
+    return 0;
 }
