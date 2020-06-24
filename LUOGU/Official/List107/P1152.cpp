@@ -1,5 +1,5 @@
 //
-// Created by sacred on 20-4-19.
+// Created by sacred on 20-6-24.
 //
 
 #include <bits/stdc++.h>
@@ -34,5 +34,23 @@ int main(int argc, char **argv)
 #ifndef ONLINE_JUDGE
 #endif
 
+    int N, A[1005], f[1005] = {};
+    cin >> N;
+    for (int i = 0; i < N; ++i) cin >> A[i];
+    for (int i = 1; i < N; ++i) {
+        //n的最大值为1000,故超过1000后，[1, n-1]中一定有一个不存在的
+        if (abs(A[i] - A[i-1]) > 1000) {
+            cout << "Not jolly" << endl;
+            return 0;
+        }
+        f[abs(A[i] - A[i-1])] = 1;
+    }
+    for (int i = 1; i < N; ++i) {
+        if (!f[i]) {
+            cout << "Not jolly" << endl;
+            return 0;
+        }
+    }
+    cout << "Jolly" << endl;
     return 0;
 }

@@ -29,10 +29,32 @@ inline int Read() {
 const int inf = 0x80000000;
 #define FREOPEN(x) freopen(x, "r", stdin)
 
+struct S{
+    int id, a, b, c;
+
+    bool operator<(const S &o) const {
+        if (a+b+c != o.a + o.b + o.c) return a+b+c > o.a+o.b+o.c;
+        if (a != o.a) return a > o.a;
+        return id < o.id;
+    }
+}s[305];
+
 int main(int argc, char **argv)
 {
 #ifndef ONLINE_JUDGE
 #endif
+    int N;
+    cin >> N;
+
+    for (int i = 0; i < N; ++i) {
+        s[i].id = i+1;
+        cin >> s[i].a >> s[i].b >> s[i].c;
+    }
+
+    sort(s, s+N);
+
+    for (int i = 0; i < 5; ++i)
+        cout << s[i].id << " " << s[i].a + s[i].b + s[i].c << endl;
 
     return 0;
 }

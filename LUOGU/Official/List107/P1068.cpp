@@ -1,5 +1,5 @@
 //
-// Created by sacred on 20-4-19.
+// Created by sacred on 20-6-24.
 //
 
 #include <bits/stdc++.h>
@@ -29,10 +29,35 @@ inline int Read() {
 const int inf = 0x80000000;
 #define FREOPEN(x) freopen(x, "r", stdin)
 
+struct S {
+    int id, a;
+    
+    bool operator<(const S &o) const {
+        if (a != o.a) return a > o.a;
+        return id < o.id;
+    }
+    
+}s[5005];
+
 int main(int argc, char **argv)
 {
 #ifndef ONLINE_JUDGE
 #endif
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < n; ++i) {
+        cin >> s[i].id >> s[i].a;
+    }
+    
+    sort(s, s+n);
+    
+    int t = m * 1.5;
+    while (s[t].a == s[t-1].a) t++;
+    
+    cout << s[t-1].a << " " << t << endl;
+    for (int i = 0; i < t; ++i) {
+        cout << s[i].id << " " << s[i].a << endl;
+    }
 
     return 0;
 }

@@ -1,5 +1,5 @@
 //
-// Created by sacred on 20-4-19.
+// Created by sacred on 20-6-24.
 //
 
 #include <bits/stdc++.h>
@@ -33,6 +33,23 @@ int main(int argc, char **argv)
 {
 #ifndef ONLINE_JUDGE
 #endif
+    int N, B;
+    int A[20005];
+
+    cin >> N >> B;
+    for (int i = 0; i < N; ++i) {
+        cin >> A[i];
+    }
+
+    sort(A, A+N);
+    int sum = 0;
+    for (int i = N-1; i >= 0; --i) {
+        sum += A[i];
+        if (sum >= B) {
+            cout << N - i << endl;
+            break;
+        }
+    }
 
     return 0;
 }

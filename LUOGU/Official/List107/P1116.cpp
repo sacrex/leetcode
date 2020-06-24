@@ -1,5 +1,5 @@
 //
-// Created by sacred on 20-4-19.
+// Created by sacred on 20-6-24.
 //
 
 #include <bits/stdc++.h>
@@ -33,6 +33,24 @@ int main(int argc, char **argv)
 {
 #ifndef ONLINE_JUDGE
 #endif
+
+    int N, A[10005];
+    cin >> N;
+    for (int i = 0; i < N; ++i) cin >> A[i];
+
+    //冒泡排序
+    int cnt = 0;
+    for (int i = 0; i < N-1; ++i) {
+        for (int j = N-2; j >= i; j--) {
+            if (A[j] > A[j+1]) {
+                cnt ++;
+                int t = A[j];
+                A[j] = A[j+1];
+                A[j+1] = t;
+            }
+        }
+    }
+    cout << cnt << endl;
 
     return 0;
 }

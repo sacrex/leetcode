@@ -1,5 +1,5 @@
 //
-// Created by sacred on 20-4-19.
+// Created by sacred on 20-6-24.
 //
 
 #include <bits/stdc++.h>
@@ -33,6 +33,24 @@ int main(int argc, char **argv)
 {
 #ifndef ONLINE_JUDGE
 #endif
+
+    vector<pair<int, string>> A;
+    int N;
+    cin >> N;
+    for (int i = 0; i < N; ++i) {
+        string tmp;
+        cin >> tmp;
+        A.push_back({i+1, tmp});
+    }
+
+    sort(A.begin(), A.end(), [](const pair<int, string>& a, const pair<int, string>& b) {
+        if (a.second.size() != b.second.size()) return a.second.size() > b.second.size();
+        return a.second > b.second;
+    });
+
+    cout << A[0].first << endl;
+    cout << A[0].second << endl;
+
 
     return 0;
 }

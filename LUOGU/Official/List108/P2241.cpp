@@ -1,5 +1,5 @@
 //
-// Created by sacred on 20-4-19.
+// Created by sacred on 20-6-24.
 //
 
 #include <bits/stdc++.h>
@@ -33,6 +33,23 @@ int main(int argc, char **argv)
 {
 #ifndef ONLINE_JUDGE
 #endif
+    int n, m;
+    cin >> n >> m;
+
+    ull tot = 0, square = 0;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m; ++j) {
+            tot += (ll)i * j;
+        }
+    }
+
+    for (int i = n; i >= 1; --i) {
+        square += (ll)i * m;
+        m--;
+        if (m == 0) break;
+    }
+
+    printf("%lld %lld\n", square, tot - square);
 
     return 0;
 }

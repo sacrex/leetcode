@@ -1,5 +1,5 @@
 //
-// Created by sacred on 20-4-19.
+// Created by sacred on 20-6-24.
 //
 
 #include <bits/stdc++.h>
@@ -33,6 +33,25 @@ int main(int argc, char **argv)
 {
 #ifndef ONLINE_JUDGE
 #endif
+    int n;
+    cin >> n;
+
+    vector<string> A;
+    for (int i = 0; i < n; ++i) {
+        string t;
+        cin >> t;
+        A.push_back(t);
+    }
+
+    sort(A.begin(), A.end(), [](const string& a, const string &b) {
+        string t1 = a + b, t2 = b + a;
+        return t1 > t2;
+    });
+
+    for (int i = 0; i < A.size(); ++i) {
+        cout << A[i];
+    }
+    cout << endl;
 
     return 0;
 }
