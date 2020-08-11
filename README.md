@@ -1,4 +1,4 @@
-# LeetCode | Luogu
+# LeetCode | LuoGu
 
 ### 题型记录　###
 1. P1980 计数问题　(数位dp, 朴素算法)
@@ -19,3 +19,9 @@
 14. P3392 涂国旗（组合）
 15. P2392 kkksc03考前临时抱佛脚 (01背包, dp)
 16. P2036 [COCI2008-2009#2] PERKET (枚举，位应用)
+17. P1044 栈(dp, 卡特兰数)
+18. P1928 外星密码(想想更简单的dfs)
+19. P1228 地毯填补问题(二维的递归)
+20. P1090 合并果子 / [USACO06NOV] Fence Repair G (哈夫曼树, priority_queue)
+21. P5019 铺设道路(贪心，差分，也可以使用线段树+dfs，还有一些其他方法 https://www.luogu.com.cn/problem/solution/P5019?page=1)
+22. P1080 国王游戏(贪心的排序规则(cmp), 高精度除法)
