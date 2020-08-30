@@ -46,9 +46,32 @@ public:
         len = other.len;
     }
 
-    Number& operator+=(Number &b) {
+    Number& operator+=(const Number &b) {
         *this = (*this) + b;
         return *this;
+    }
+
+    Number& operator/=(int n) {
+        *this = *this / n;
+        return *this;
+    }
+
+    Number operator/(int n) {
+        int t = 0;
+        vector<int> ret;
+        for (int i = len - 1; i >= 0; --i) {
+            t = t * 10 + A[i];
+            ret.push_back(t / n);
+            t %= n;
+        }
+        reverse(ret.begin(), ret.end());
+        while(ret.size() > 1 && ret.back() == 0) ret.pop_back();
+
+        Number r;
+        for (int i = 0; i < ret.size(); ++i) {
+            r.setNum(i, ret[i]);
+        }
+        return r;
     }
 
     Number operator+(const Number &b)
@@ -66,7 +89,7 @@ public:
         return ret;
     }
 
-    Number& operator*=(Number &b) {
+    Number& operator*=(const Number &b) {
         *this = (*this) * b;
         return *this;
     }
@@ -127,9 +150,47 @@ public:
         }
         return true;
     }
+
+    string str() {
+        string ret;
+        for (int i = size() - 1; i >= 0; --i) {
+            ret += getNum(i) + '0';
+        }
+        return ret;
+    }
 };
 ostream& operator<<(ostream& o, Number n) {
     for (int i = n.size() - 1; i >= 0; --i) {
-        cout << n.getNum(i);
+        o << n.getNum(i);
     }
+    return o;
+}
+bool operator<(const Number &a, const Number &b) {
+    if (a.size() != b.size()) return a.size() < b.size();
+    for (int i = a.size() - 1; i >= 0; --i) {
+        if (a[i] != b[i]) {
+            return a[i] < b[i];
+        }
+    }
+    return false;
+}
+
+bool operator==(const Number &a, const Number &b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+bool operator!=(const Number &a, const Number &b) {
+    return !(a == b);
+}
+
+bool operator<=(const Number &a, const Number &b) {
+    return a < b || a == b;
+}
+
+bool operator>(const Number &a, const Number &b) {
+    return !(a <= b);
 }
