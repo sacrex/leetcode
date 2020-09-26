@@ -35,3 +35,8 @@
 26. P1182 数列分段 Section II (二分, 最小化最大值)
 27. P3743 kotori的设备(二分，精度考虑，二分的写法！)
 ```
+
+28. P1433 吃奶酪 (状态压缩, DP)
+29. P1162 填涂颜色(dfs校验是否围圈)
+30. P1825 [USACO11OPEN]Corn Maze S (bfs 状态需要考虑方向)
+31. P2895 [USACO08FEB]Meteor Shower S(bfs, 弄清题意)
