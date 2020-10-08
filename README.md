@@ -40,3 +40,5 @@
 29. P1162 填涂颜色(dfs校验是否围圈)
 30. P1825 [USACO11OPEN]Corn Maze S (bfs 状态需要考虑方向)
 31. P2895 [USACO08FEB]Meteor Shower S(bfs, 弄清题意)
+
+32. P1241 括号序列(这题目的说明...!!)
